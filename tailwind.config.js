@@ -6,6 +6,10 @@ module.exports = {
 			'center': true,
 		},
 		extend: {
+			aspectRatio: {
+				'img': '1920 / 850',
+				'img2': '3840 / 850',
+		 	},
 			fontSize: {
 				'tit': '10vh',
 				'titm': '12vw',
@@ -26,7 +30,8 @@ module.exports = {
 				'1/10': '10%',
 				'2/5': '45%',
 				'1/20': '5%',
-				'3/5': '72%'
+				'3/5': '72%',
+				'2s': '200%'
 			},
 			gridTemplateRows: {
 				// Simple 8 row grid
