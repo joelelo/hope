@@ -3,31 +3,53 @@ import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Content from '../components/Content';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Wave } from '@foobar404/wave';
+import Schedule from '../components/Schedule';
 export default function Home() {
+	const audioRef = useRef();
+	const canvasRef = useRef();
 	const [playing, setPlaying] = useState(true);
-
+	let wave;
+	useEffect(() => {
+		if (wave == undefined) {
+			try {
+				wave = new Wave(audioRef.current, canvasRef.current);
+				wave.addAnimation(
+					new wave.animations.Lines({
+						lineColor: 'red',
+						count: 100,
+					})
+				);
+			} catch (error) {
+				console.log('Refresh page!!');
+			}
+		}
+	}, []);
 	const handlePlay = () => {
 		const prev = playing;
 		setPlaying(!prev);
+		prev ? audioRef.current.play() : audioRef.current.pause();
 	};
 	return (
 		<div className="relative h-screen w-screen bg-vin4">
+			<audio ref={audioRef} src="/audio/sample2.mp3" />
 			<Navbar />
-			<div className="w-screen h-fit -z-50 overflow-hidden">
-				<div className="absolute text-7xl z-20 top-1/3 left-11 ml-20 font-bold text-vin4 italic">Hope Radio</div>
-				<div className="absolute text-7xl z-20 top-1/3 mt-20 ml-20 left-60 text-vin4 font-cursive">Atmosfir</div>
+			<div className="relative -z- overflow-hidden bg">
+				<div className="absolute text-tit z-20 top-1/3 left-1/20  font-bold text-vin4 italic">Hope Radio</div>
+				<div className="absolute text-tit z-20 top-2/5 left-1/10 text-vin4 font-cursive">Atmosfir</div>
 				{playing ? (
-					<AiOutlinePlayCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-40 h-40 top-1/3 left-60 mt-60 ml-40" />
+					<AiOutlinePlayCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
 				) : (
-					<AiOutlinePauseCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-40 h-40 top-1/3 left-60 mt-60 ml-40" />
+					<AiOutlinePauseCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
 				)}
-
+				<canvas ref={canvasRef} className="absolute z-20 right-1/5 top-3/5 w-1/5 h-1/10"></canvas>
 				<Image src={'/radio11.jpg'} width={1920} height={850} layout="responsive" priority="true" />
 			</div>
 			<div className="w-1/2">{/* <Image src={'/radio4clean.png'} height={521} width={864} layout="responsive" /> */}</div>
 			{/* <Player /> */}
 			<Content
+				head={'Engkau Baik'}
 				con={
 					<>
 						<p className="text-vin1 basis-1/2 py-10">
@@ -39,7 +61,7 @@ export default function Home() {
 							haleluluyah Besar Tuhan di hidupku (2x)
 						</p>
 						<iframe
-							className="basis-1/3 aspect-video m-auto"
+							className="basis-1/3 aspect-video m-auto drop-shadow-xl"
 							width=""
 							height=""
 							src="https://www.youtube.com/embed/0vZRFq09zeE"
@@ -50,7 +72,32 @@ export default function Home() {
 						></iframe>
 					</>
 				}
-			></Content>
+			/>
+			<Content
+				head={'Tetap Percaya'}
+				con={
+					<>
+						<iframe
+							className="basis-1/3 aspect-video m-auto drop-shadow-xl"
+							width=""
+							height=""
+							src="https://www.youtube.com/embed/-7zg8wusTe0"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+						<p className="text-vin1 basis-1/2 py-10">
+							<span className="text-vin2 font-bold">TETAP PERCAYA by: Jonah Chen</span> Jonah Chen sangat besyukur mendapatkan
+							kesempatan untuk bisa menyanyikan lagu <q>TETAP PERCAYA.</q> di studio Unlimited Worship serta pujian ini bisa menjadi
+							berkat buat pemirsa di rumah yang menyaksikan chanel 1st media chanel 89 Praise, lagu ini release tahun 2021 yang lalu dan
+							sudah bisa di dengerin di semua platform digital. kiranya Pujian ini menjadi berkat buat saudara semua untuk tetap percaya
+							kepada Tuhan yg kuasanya dan janjiNya tidak berubah dulu sekarang dan selamanya.
+						</p>
+					</>
+				}
+			/>
+			<Content head={'Schedule'} con={<Schedule />} />
 		</div>
 	);
 }
