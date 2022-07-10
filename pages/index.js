@@ -34,7 +34,7 @@ export default function Home() {
 		prev ? audioRef.current.play() : audioRef.current.pause();
 	};
 	return (
-		<div className="relative h-screen w-screen bg-vin4 overflow-x-hidden">
+		<div className="relative h-screen w-screen bg-vin4 overflow-x-hidden lg:overflow-x-visible">
 			<audio ref={audioRef} src="/audio/sample2.mp3" />
 			<Navbar />
 			<div className="relative overflow-hidden lg:w-full w-2s aspect-img">

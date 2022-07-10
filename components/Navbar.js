@@ -17,7 +17,7 @@ const Navbar = () => {
 			className={
 				scroll > 10
 					? 'fixed flex text-white w-full h-fit pt-1 pb-2 lg:pl-20 sm:p-auto bg-vin1 z-30 justify-start space-x-4'
-					: 'fixed flex text-white w-full h-fit pt-1 pb-2 lg:pl-20 sm:p-auto z-30 justify-start space-x-4'
+					: 'fixed flex text-white w-full h-fit pt-1 pb-2 lg:pl-20 sm:p-auto bg-vin1 lg:bg-transparent z-50 justify-start space-x-4'
 			}
 		>
 			<a className="font-extralight lg:text-4xl sm:text-2xl p-2 w-fit h-full hover:bg-vin2 text-2xl" href="#home">
