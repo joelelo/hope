@@ -12,8 +12,9 @@ export default function Home() {
 	const [playing, setPlaying] = useState(true);
 	let wave;
 	useEffect(() => {
-		if (wave == undefined) {
+		if (wave === undefined) {
 			try {
+				console.log(typeof(wave))
 				wave = new Wave(audioRef.current, canvasRef.current);
 				wave.addAnimation(
 					new wave.animations.Lines({
@@ -21,6 +22,7 @@ export default function Home() {
 						count: 100,
 					})
 				);
+				console.log(typeof(wave))
 			} catch (error) {
 				console.log('Refresh page!!');
 			}
@@ -35,16 +37,16 @@ export default function Home() {
 		<div className="relative h-screen w-screen bg-vin4">
 			<audio ref={audioRef} src="/audio/sample2.mp3" />
 			<Navbar />
-			<div className="relative -z- overflow-hidden bg">
-				<div className="absolute text-tit z-20 top-1/3 left-1/20  font-bold text-vin4 italic">Hope Radio</div>
-				<div className="absolute text-tit z-20 top-2/5 left-1/10 text-vin4 font-cursive">Atmosfir</div>
+			<div className="relative overflow-hidden bg ">
+				<div className="absolute text-titm lg:text-tit z-20 top-1/4 lg:top-1/3 left-1/20  font-bold text-vin2 italic">Hope Radio</div>
+				<div className="absolute text-titm lg:text-tit z-20 top-2/5 left-1/10 text-red-500 font-cursive">Atmosfir</div>
 				{playing ? (
-					<AiOutlinePlayCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
+					<AiOutlinePlayCircle onClick={handlePlay} className="absolute z-10 text-vin1 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
 				) : (
-					<AiOutlinePauseCircle onClick={handlePlay} className="absolute z-20 text-vin4 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
+					<AiOutlinePauseCircle onClick={handlePlay} className="absolute z-10 text-vin1 w-1/5 h-1/5 bottom-1/5 left-1/5 " />
 				)}
 				<canvas ref={canvasRef} className="absolute z-20 right-1/5 top-3/5 w-1/5 h-1/10"></canvas>
-				<Image src={'/radio11.jpg'} width={1920} height={850} layout="responsive" priority="true" />
+				<Image src={'/radio13.jpg'} width={1920} height={850} layout="responsive" priority="true" />
 			</div>
 			<div className="w-1/2">{/* <Image src={'/radio4clean.png'} height={521} width={864} layout="responsive" /> */}</div>
 			{/* <Player /> */}

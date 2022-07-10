@@ -16,17 +16,17 @@ const Navbar = () => {
 		<div
 			className={
 				scroll > 10
-					? 'fixed text-white w-full h-fit pt-1 pb-2 pl-20 bg-vin1 z-30 justify-end space-x-4'
-					: 'fixed text-white w-full h-fit pt-1 pb-2 pl-20 z-30 justify-end space-x-4'
+					? 'fixed flex text-white w-full h-fit pt-1 pb-2 lg:pl-20 sm:p-auto bg-vin1 z-30 justify-start space-x-4'
+					: 'fixed flex text-white w-full h-fit pt-1 pb-2 lg:pl-20 sm:p-auto z-30 justify-start space-x-4'
 			}
 		>
-			<a className="font-extralight text-4xl p-2 w-fit h-full hover:bg-vin2" href="#home">
+			<a className="font-extralight lg:text-4xl sm:text-2xl p-2 w-fit h-full hover:bg-vin2 text-2xl" href="#home">
 				Home
 			</a>
-			<a className="font-extralight text-4xl p-2 w-fit h-full hover:bg-vin2" href="#schedule">
+			<a className="font-extralight lg:text-4xl sm:text-2xl p-2 w-fit h-full hover:bg-vin2 text-2xl" href="#schedule">
 				Schedule
 			</a>
-			<a className="font-extralight text-4xl p-2 w-fit h-full hover:bg-vin2" href="#about">
+			<a className="font-extralight lg:text-4xl sm:text-2xl p-2 w-fit h-full hover:bg-vin2 text-2xl" href="#about">
 				About us
 			</a>
 		</div>

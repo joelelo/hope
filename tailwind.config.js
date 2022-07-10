@@ -8,6 +8,7 @@ module.exports = {
 		extend: {
 			fontSize: {
 				'tit': '10vh',
+				'titm': '12vw',
 			},
 			colors: {
 				'vin1': '#2C3639',
