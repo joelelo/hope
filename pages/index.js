@@ -46,7 +46,7 @@ export default function Home() {
 					<AiOutlinePauseCircle onClick={handlePlay} className="absolute z-10 text-vin2 w-1/3 h-1/3 bottom-1/5 left-1/10 lg:w-1/5 lg:h-1/5 lg:left-1/5" />
 				)}
 				<canvas ref={canvasRef} className="absolute z-20 right-1/5 top-3/5 w-1/5 h-1/10 "></canvas>
-				<Image src={'/radio13.jpg'} layout="fill" priority="true" />
+				<Image src={'/radio14.jpg'} layout="fill" priority="true" />
 			</div>
 			<div className="w-1/2">{/* <Image src={'/radio4clean.png'} height={521} width={864} layout="responsive" /> */}</div>
 			{/* <Player /> */}
