@@ -239,7 +239,12 @@ const EditSchedule = () => {
 
       if (temp.reduce((sum, a) => sum + parseInt(a), 0) === 8) {
         return temp.map((block, i) => {
-          return { content: e.target[i].value, span: block };
+          if (e.target[i] !== undefined) {
+            if (e.target[i].value !== "Change") {
+              return { content: e.target[i].value, span: block };
+            }
+          }
+          return { content: "", span: block };
         });
       }
       return false;
@@ -250,6 +255,114 @@ const EditSchedule = () => {
         out = getNew(e, sixs);
         if (out) {
           setSix(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 2:
+        out = getNew(e, svns);
+        if (out) {
+          setSvn(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 3:
+        out = getNew(e, eits);
+        if (out) {
+          setEit(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 4:
+        out = getNew(e, nines);
+        if (out) {
+          setNine(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 5:
+        out = getNew(e, tens);
+        if (out) {
+          setTen(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 6:
+        out = getNew(e, eles);
+        if (out) {
+          setEle(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 7:
+        out = getNew(e, twes);
+        if (out) {
+          setTwe(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 8:
+        out = getNew(e, frts);
+        if (out) {
+          setFrt(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 9:
+        out = getNew(e, stns);
+        if (out) {
+          setStn(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 10:
+        out = getNew(e, etns);
+        if (out) {
+          setEtn(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 11:
+        out = getNew(e, tnts);
+        if (out) {
+          setTnt(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 12:
+        out = getNew(e, ttws);
+        if (out) {
+          setTtw(out);
+          alert("success");
+        } else {
+          alert("error: Jumlahnya harus 8");
+        }
+        break;
+      case 13:
+        out = getNew(e, tfrs);
+        if (out) {
+          setTfr(out);
           alert("success");
         } else {
           alert("error: Jumlahnya harus 8");
@@ -390,6 +503,24 @@ const EditSchedule = () => {
         break;
     }
   };
+  const handleSave = () => {
+    const out = [
+      six,
+      svn,
+      eit,
+      nine,
+      ten,
+      ele,
+      twe,
+      frt,
+      stn,
+      etn,
+      tnt,
+      ttw,
+      tfr,
+    ];
+    console.log(out);
+  };
   useEffect(() => {
     console.log(six);
   }, [, six]);
@@ -459,7 +590,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 2)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {svn.map((block, i) => {
@@ -506,7 +637,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 3)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {eit.map((block, i) => {
@@ -553,7 +684,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 4)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {nine.map((block, i) => {
@@ -600,7 +731,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 5)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ten.map((block, i) => {
@@ -647,7 +778,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 6)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ele.map((block, i) => {
@@ -694,7 +825,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 7)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {twe.map((block, i) => {
@@ -741,7 +872,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 8)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {frt.map((block, i) => {
@@ -788,7 +919,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 9)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {stn.map((block, i) => {
@@ -835,7 +966,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 10)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {etn.map((block, i) => {
@@ -882,7 +1013,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 11)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {tnt.map((block, i) => {
@@ -929,7 +1060,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 12)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ttw.map((block, i) => {
@@ -976,7 +1107,7 @@ const EditSchedule = () => {
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, 13)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {tfr.map((block, i) => {
@@ -1025,6 +1156,7 @@ const EditSchedule = () => {
       <div></div>
       <div></div>
       <input
+        onClick={handleSave}
         type="button"
         value="Save"
         className="col-span-3 mt-10 bg-green-500"
