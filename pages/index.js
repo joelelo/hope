@@ -6,7 +6,6 @@ import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
 import { useState, useRef, useEffect } from "react";
 import { Wave } from "@foobar404/wave";
 import Schedule from "../components/Schedule";
-import EditSchedule from "../components/EditSchedule";
 export default function Home() {
   const audioRef = useRef();
   const canvasRef = useRef();
@@ -35,7 +34,7 @@ export default function Home() {
     prev ? audioRef.current.play() : audioRef.current.pause();
   };
   return (
-    <div className="relative h-screen w-screen overflow-x-hidden bg-vin4 lg:overflow-x-visible">
+    <div className="relative h-screen w-screen overflow-x-hidden  lg:overflow-x-visible">
       <audio ref={audioRef} src="/audio/sample2.mp3" />
       <Navbar />
       <div className="relative aspect-img w-2s overflow-hidden lg:w-full">
@@ -122,7 +121,6 @@ export default function Home() {
         }
       />
       <Content head={"Schedule"} con={<Schedule />} />
-      <Content head={"Edit Schedule"} con={<EditSchedule />} />
     </div>
   );
 }

@@ -1,145 +1,146 @@
 import React, { useEffect, useState } from "react";
 
-const EditSchedule = () => {
-  const schedule = [
-    [
-      { content: "06:00", span: "1" },
-      { content: "prayer", span: "7" },
-    ],
-    [
-      { content: "07:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "08:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "09:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "10:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "11:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "12:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "14:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "16:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "18:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "20:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "22:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "24:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-  ];
-  const [six, setSix] = useState(schedule[0]);
-  const [svn, setSvn] = useState(schedule[1]);
-  const [eit, setEit] = useState(schedule[2]);
-  const [nine, setNine] = useState(schedule[3]);
-  const [ten, setTen] = useState(schedule[4]);
-  const [ele, setEle] = useState(schedule[5]);
-  const [twe, setTwe] = useState(schedule[6]);
-  const [frt, setFrt] = useState(schedule[7]);
-  const [stn, setStn] = useState(schedule[8]);
-  const [etn, setEtn] = useState(schedule[9]);
-  const [tnt, setTnt] = useState(schedule[10]);
-  const [ttw, setTtw] = useState(schedule[11]);
-  const [tfr, setTfr] = useState(schedule[12]);
+const EditSchedule = ({ schedule }) => {
+  console.log(schedule);
+  //   const schedule = [
+  //     [
+  //       { content: "06:00", span: "1" },
+  //       { content: "prayer", span: "7" },
+  //     ],
+  //     [
+  //       { content: "07:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "08:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "09:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "10:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "11:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "12:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "14:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "16:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "18:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "20:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "22:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //     [
+  //       { content: "24:00", span: "1" },
+  //       { content: "2", span: "1" },
+  //       { content: "3", span: "1" },
+  //       { content: "4", span: "1" },
+  //       { content: "5", span: "1" },
+  //       { content: "6", span: "1" },
+  //       { content: "7", span: "1" },
+  //       { content: "8", span: "1" },
+  //     ],
+  //   ];
+  const [six, setSix] = useState(schedule[0].schedule);
+  const [svn, setSvn] = useState(schedule[1].schedule);
+  const [eit, setEit] = useState(schedule[2].schedule);
+  const [nine, setNine] = useState(schedule[3].schedule);
+  const [ten, setTen] = useState(schedule[4].schedule);
+  const [ele, setEle] = useState(schedule[5].schedule);
+  const [twe, setTwe] = useState(schedule[6].schedule);
+  const [frt, setFrt] = useState(schedule[7].schedule);
+  const [stn, setStn] = useState(schedule[8].schedule);
+  const [etn, setEtn] = useState(schedule[9].schedule);
+  const [tnt, setTnt] = useState(schedule[10].schedule);
+  const [ttw, setTtw] = useState(schedule[11].schedule);
+  const [tfr, setTfr] = useState(schedule[12].schedule);
   //struct
   const [sixs, setSixs] = useState(
     six
@@ -503,7 +504,7 @@ const EditSchedule = () => {
         break;
     }
   };
-  const handleSave = () => {
+  const handleSave = async () => {
     const out = [
       six,
       svn,
@@ -519,7 +520,24 @@ const EditSchedule = () => {
       ttw,
       tfr,
     ];
-    console.log(out);
+    out.map(async (line, i) => {
+      console.log({ ind: i, schedule: line });
+      await fetch("/api/schedule", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ind: i, schedule: line }),
+      });
+    });
+    // console.log(JSON.stringify(out));
+    // await fetch("/api/schedule", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(out),
+    // });
   };
   useEffect(() => {
     console.log(six);
@@ -1163,6 +1181,15 @@ const EditSchedule = () => {
       />
     </div>
   );
+};
+
+export const getServerSideProps = async (ctx) => {
+  const res = await fetch("http://localhost:3000/api/schedule");
+  const { schedule } = await res.json();
+  console.log(schedule);
+  return {
+    props: { schedule: schedule },
+  };
 };
 
 export default EditSchedule;
