@@ -148,16 +148,16 @@ const Schedule = () => {
                 block.span === "1"
                   ? "col-span-1 bg-vin2"
                   : block.span === "2"
-                  ? "col-span-2 bg-vin2"
+                  ? "col-span-2 bg-purple-400"
                   : block.span === "3"
-                  ? "col-span-3 bg-vin2"
+                  ? "col-span-3 bg-blue-400"
                   : block.span === "4"
-                  ? "col-span-4 bg-vin2"
+                  ? "col-span-4 bg-green-400"
                   : block.span === "5"
-                  ? "col-span-5 bg-vin2"
+                  ? "col-span-5 bg-yellow-400"
                   : block.span === "6"
-                  ? "col-span-6 bg-vin2"
-                  : "col-span-7 bg-vin2"
+                  ? "col-span-6 bg-orange-400"
+                  : "col-span-7 bg-red-400"
               }
             >
               {block.content}

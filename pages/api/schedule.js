@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const schedule = await schedulemodel.find();
+        const schedule = await schedulemodel.find({}).sort({ ind: 1 });
         res.status(200).json({ schedule: schedule });
       } catch (error) {
         res.status(500).json({ error: error });
@@ -19,8 +19,8 @@ export default async function handler(req, res) {
       try {
         req.body.map(async (line, i) => {
           await schedulemodel.updateMany(
-            { ind: i },
-            { ind: i, schedule: line },
+            { ind: line[0].content },
+            { ind: line[0].content, schedule: line },
             { upsert: true }
           );
         });
