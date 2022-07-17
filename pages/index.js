@@ -6,6 +6,7 @@ import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
 import { useState, useRef, useEffect } from "react";
 import { Wave } from "@foobar404/wave";
 import Schedule from "../components/Schedule";
+import Footer from "../components/Footer";
 export default function Home() {
   const audioRef = useRef();
   const canvasRef = useRef();
@@ -121,6 +122,7 @@ export default function Home() {
         }
       />
       <Content head={"Schedule"} con={<Schedule />} />
+      <Footer />
     </div>
   );
 }
