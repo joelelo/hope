@@ -520,24 +520,23 @@ const EditSchedule = ({ schedule }) => {
       ttw,
       tfr,
     ];
-    out.map(async (line, i) => {
-      console.log({ ind: i, schedule: line });
-      await fetch("/api/schedule", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ind: i, schedule: line }),
-      });
-    });
-    // console.log(JSON.stringify(out));
-    // await fetch("/api/schedule", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(out),
+    // out.map(async (line, i) => {
+    //   console.log({ ind: i, schedule: line });
+    //   await fetch("/api/schedule", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ ind: i, schedule: line }),
+    //   });
     // });
+    await fetch("/api/schedule", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(out),
+    });
   };
   useEffect(() => {
     console.log(six);

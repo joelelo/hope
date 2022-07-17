@@ -7,13 +7,28 @@ export default async function handler(req, res) {
   console.log(method);
   switch (method) {
     case "GET":
-      const schedule = await schedulemodel.find();
-      res.status(200).json({ schedule: schedule });
+      try {
+        const schedule = await schedulemodel.find();
+        res.status(200).json({ schedule: schedule });
+      } catch (error) {
+        res.status(500).json({ error: error });
+      }
+
       break;
     case "POST":
-      await schedulemodel.create(req.body);
-      // await schedulemodel.updateMany({}, req.body, { upsert: true });
-      res.status(200).json({});
+      try {
+        req.body.map(async (line, i) => {
+          await schedulemodel.updateMany(
+            { ind: i },
+            { ind: i, schedule: line },
+            { upsert: true }
+          );
+        });
+        res.status(200).json({ message: "Successful" });
+      } catch (error) {
+        res.status(500).json({ error: error });
+      }
+
       break;
   }
 }
