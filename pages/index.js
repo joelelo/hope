@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import { Wave } from "@foobar404/wave";
 import Schedule from "../components/Schedule";
 import Footer from "../components/Footer";
-export default function Home() {
+export default function Home({ schedule }) {
   const audioRef = useRef();
   const canvasRef = useRef();
   const [playing, setPlaying] = useState(true);
@@ -121,9 +121,18 @@ export default function Home() {
           </>
         }
       />
-      <Content head={"Schedule"} con={<Schedule />} />
+      <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
       <Footer />
     </div>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  const res = await fetch("http://localhost:3000/api/schedule");
+  const { schedule } = await res.json();
+  console.log(schedule);
+  return {
+    props: { schedule },
+  };
+};
 //absolute top-0 right-0 h-auto w-1/2

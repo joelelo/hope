@@ -1,132 +1,6 @@
 import React from "react";
 
-const Schedule = () => {
-  const schedule = [
-    [
-      { content: "06:00", span: "1" },
-      { content: "prayer", span: "7" },
-    ],
-    [
-      { content: "07:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "08:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "09:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "10:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "11:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "12:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "14:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "16:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "18:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "20:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "22:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-    [
-      { content: "24:00", span: "1" },
-      { content: "2", span: "1" },
-      { content: "3", span: "1" },
-      { content: "4", span: "1" },
-      { content: "5", span: "1" },
-      { content: "6", span: "1" },
-      { content: "7", span: "1" },
-      { content: "8", span: "1" },
-    ],
-  ];
+const Schedule = ({ schedule }) => {
   return (
     <div
       id="schedule"
@@ -141,7 +15,7 @@ const Schedule = () => {
       <div className="bg-vin2">Sat</div>
       <div className="bg-vin2">Sun</div>
       {schedule.map((row) => {
-        return row.map((block) => {
+        return row.schedule.map((block) => {
           return (
             <div
               className={
