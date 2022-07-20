@@ -16,6 +16,8 @@ module.exports = {
       fontSize: {
         tit: "10vh",
         titm: "12vw",
+        hero: "3vh",
+        herom: "3.5vw",
       },
       colors: {
         vin1: "#2C3639",
@@ -31,10 +33,12 @@ module.exports = {
       spacing: {
         "1/5": "17.25%",
         "1/10": "10%",
-        "2/5": "45%",
+        "2/5": "40%",
         "1/20": "5%",
         "3/5": "72%",
         "2s": "200%",
+        "3/10": "30%",
+        "6/10": "60%",
       },
       gridTemplateRows: {
         // Simple 8 row grid

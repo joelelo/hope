@@ -2,11 +2,11 @@ import React from "react";
 
 const Content = ({ head, con }) => {
   return (
-    <div className="  text-vin2 sm:px-10 lg:px-60">
+    <div className="  lg: basis-1/2 text-vin2 sm:px-10">
       <div className="mx-10 mb-10 w-auto border-b-4 border-vin2 pt-20  font-serif text-5xl  lg:mx-0">
         {head}
       </div>
-      <div className="flex flex-col px-10 text-2xl lg:flex-row ">{con}</div>
+      <div className="lg: flex flex-col px-10 text-2xl ">{con}</div>
     </div>
   );
 };

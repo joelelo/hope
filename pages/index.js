@@ -39,21 +39,26 @@ export default function Home({ schedule }) {
       <audio ref={audioRef} src="/audio/sample2.mp3" />
       <Navbar />
       <div className="relative aspect-img w-2s overflow-hidden lg:w-full">
-        <div className="absolute top-1/4 left-1/20 z-20 text-titm font-bold italic  text-vin2 lg:top-1/3 lg:text-tit">
+        <div className="absolute top-3/10 left-1/20 z-20 text-titm font-bold italic  text-vin2 lg:top-1/3 lg:text-tit">
           Hope Radio
         </div>
-        <div className="absolute top-1/3 left-1/10 z-20 font-cursive text-titm text-red-500 lg:top-2/5 lg:text-tit">
+        <div className="absolute top-2/5 left-1/10 z-20 font-cursive text-titm text-red-500 lg:top-2/5 lg:text-tit">
           Atmosfir
+        </div>
+        <div className="absolute bottom-1/5 left-1/20 z-20 text-herom font-bold italic  text-vin2 lg:top-6/10 lg:text-hero">
+          Hope Atmosfir Radio radio Bekasi Hope Church <br /> Dengarkan
+          sekarang!! <br />
+          Klik tombol play untuk mendengarkan radio
         </div>
         {playing ? (
           <AiOutlinePlayCircle
             onClick={handlePlay}
-            className="absolute bottom-1/5 left-1/10 z-10 h-1/3 w-1/3 text-vin2 lg:left-1/5 lg:h-1/5 lg:w-1/5"
+            className="invisible absolute right-1/5 top-3/5  z-10 h-1/5 w-1/5 text-red-500 sm:visible"
           />
         ) : (
           <AiOutlinePauseCircle
             onClick={handlePlay}
-            className="absolute bottom-1/5 left-1/10 z-10 h-1/3 w-1/3 text-vin2 lg:left-1/5 lg:h-1/5 lg:w-1/5"
+            className="invisible absolute right-1/5 top-3/5  z-10 h-1/5 w-1/5 text-red-500 sm:visible"
           />
         )}
         <canvas
@@ -62,66 +67,69 @@ export default function Home({ schedule }) {
         ></canvas>
         <Image src={"/radio14.jpg"} layout="fill" priority="true" />
       </div>
-      <Content
-        head={"Engkau Baik"}
-        con={
-          <>
-            <p className="basis-1/2 pb-10 text-vin1">
-              <span className="font-bold text-vin2">ENGKAU BAIK </span>
-              Sebuah persembahan Pujian baru dari Bekasi Hope Church & Jonah
-              Chen, tentang kebaikkan Tuhan, kiranya lagu ini dapat menjadi
-              menjadi berkat bagi Gereja-Gereja karena mudah di nyanyikan untuk
-              jemaat semua. ENGKAU BAIK (Jonah Chen) Pujian hormat bagi Allah
-              tak terukur kebaikkannya setiap hari ku menikmati setiap waktu
-              Engkau baik Reff: Engkau baik sangat baik besar setiaMu Tuhan di
-              hidupku Engkau baik sangat baik besar setiaMu TUhan di hidupku ku
-              nyanyi haleluyah haleluyah, haleluluyah Besar Tuhan di hidupku
-              (2x)
-            </p>
-            {/* <iframe
-              className="m-auto aspect-video basis-1/3 drop-shadow-xl"
-              width=""
-              height=""
-              src="https://www.youtube.com/embed/0vZRFq09zeE"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe> */}
-          </>
-        }
-      />
-      <Content
-        head={"Tetap Percaya"}
-        con={
-          <>
-            {/* <iframe
-              className="m-auto aspect-video basis-1/3 drop-shadow-xl"
-              width=""
-              height=""
-              src="https://www.youtube.com/embed/-7zg8wusTe0"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe> */}
-            <p className="basis-1/2 pb-10 text-vin1">
-              <span className="font-bold text-vin2">
-                TETAP PERCAYA by: Jonah Chen
-              </span>{" "}
-              Jonah Chen sangat besyukur mendapatkan kesempatan untuk bisa
-              menyanyikan lagu <q>TETAP PERCAYA.</q> di studio Unlimited Worship
-              serta pujian ini bisa menjadi berkat buat pemirsa di rumah yang
-              menyaksikan chanel 1st media chanel 89 Praise, lagu ini release
-              tahun 2021 yang lalu dan sudah bisa di dengerin di semua platform
-              digital. kiranya Pujian ini menjadi berkat buat saudara semua
-              untuk tetap percaya kepada Tuhan yg kuasanya dan janjiNya tidak
-              berubah dulu sekarang dan selamanya.
-            </p>
-          </>
-        }
-      />
+      <div className="mx-10 flex flex-col sm:flex-row">
+        <Content
+          head={"Engkau Baik"}
+          con={
+            <>
+              <iframe
+                className="mx-5 mb-10 aspect-video basis-1/2 drop-shadow-xl"
+                width=""
+                height=""
+                src="https://www.youtube.com/embed/0vZRFq09zeE"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+              <p className="basis-1/2 pb-10 text-vin1">
+                <span className="font-bold text-vin2">ENGKAU BAIK </span>
+                Sebuah persembahan Pujian baru dari Bekasi Hope Church & Jonah
+                Chen, tentang kebaikkan Tuhan, kiranya lagu ini dapat menjadi
+                menjadi berkat bagi Gereja-Gereja karena mudah di nyanyikan
+                untuk jemaat semua. ENGKAU BAIK (Jonah Chen) Pujian hormat bagi
+                Allah tak terukur kebaikkannya setiap hari ku menikmati setiap
+                waktu Engkau baik Reff: Engkau baik sangat baik besar setiaMu
+                Tuhan di hidupku Engkau baik sangat baik besar setiaMu TUhan di
+                hidupku ku nyanyi haleluyah haleluyah, haleluluyah Besar Tuhan
+                di hidupku (2x)
+              </p>
+            </>
+          }
+        />
+        <Content
+          head={"Tetap Percaya"}
+          con={
+            <>
+              <iframe
+                className="mx-5 mb-10 aspect-video basis-1/2 drop-shadow-xl"
+                width=""
+                height=""
+                src="https://www.youtube.com/embed/-7zg8wusTe0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p className="basis-1/2 pb-10 text-vin1">
+                <span className="font-bold text-vin2">
+                  TETAP PERCAYA by: Jonah Chen
+                </span>{" "}
+                Jonah Chen sangat besyukur mendapatkan kesempatan untuk bisa
+                menyanyikan lagu <q>TETAP PERCAYA.</q> di studio Unlimited
+                Worship serta pujian ini bisa menjadi berkat buat pemirsa di
+                rumah yang menyaksikan chanel 1st media chanel 89 Praise, lagu
+                ini release tahun 2021 yang lalu dan sudah bisa di dengerin di
+                semua platform digital. kiranya Pujian ini menjadi berkat buat
+                saudara semua untuk tetap percaya kepada Tuhan yg kuasanya dan
+                janjiNya tidak berubah dulu sekarang dan selamanya.
+              </p>
+            </>
+          }
+        />
+      </div>
       <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
+      <Content head={"About"} con={<p id="about">About us</p>} />
       <Footer />
     </div>
   );
