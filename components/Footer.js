@@ -14,7 +14,7 @@ const Footer = () => {
         Hope Atmosfir Radio
       </div>
       <div className="flex ">
-        <div className="flex w-full flex-col bg-vin2  text-2xl text-white">
+        <div className="flex w-full flex-col bg-vin2  py-1/20 text-2xl text-white">
           <div className=" m-auto flex flex-row">
             <AiFillPhone className="mt-1.5" />
             Contact Us: +620000000

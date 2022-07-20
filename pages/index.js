@@ -35,7 +35,15 @@ export default function Home({ schedule }) {
     prev ? audioRef.current.play() : audioRef.current.pause();
   };
   return (
-    <div className="relative h-screen w-screen overflow-x-hidden  lg:overflow-x-visible">
+    <div className="relative h-full w-full overflow-x-hidden  lg:overflow-x-visible">
+      <div className="fixed left-0 -bottom-1/4 -z-50 aspect-square w-1/3 ">
+        <Image
+          src="/sunfl2.jpg"
+          layout="responsive"
+          width={957}
+          height={1000}
+        ></Image>
+      </div>
       <audio ref={audioRef} src="/audio/sample2.mp3" />
       <Navbar />
       <div className="relative aspect-img w-2s overflow-hidden lg:w-full">
@@ -45,7 +53,7 @@ export default function Home({ schedule }) {
         <div className="absolute top-2/5 left-1/10 z-20 font-cursive text-titm text-red-500 lg:top-2/5 lg:text-tit">
           Atmosfir
         </div>
-        <div className="absolute bottom-1/5 left-1/20 z-20 text-herom font-bold italic  text-vin2 lg:top-6/10 lg:text-hero">
+        <div className="absolute bottom-1/5 left-1/20 z-20 font-serif text-herom text-vin2 lg:top-6/10 lg:text-hero">
           Hope Atmosfir Radio radio Bekasi Hope Church <br /> Dengarkan
           sekarang!! <br />
           Klik tombol play untuk mendengarkan radio
@@ -53,12 +61,12 @@ export default function Home({ schedule }) {
         {playing ? (
           <AiOutlinePlayCircle
             onClick={handlePlay}
-            className="invisible absolute right-1/5 top-3/5  z-10 h-1/5 w-1/5 text-red-500 sm:visible"
+            className="invisible absolute right-1/5 top-3/5  z-50 h-1/10 w-1/5 text-red-500 sm:visible"
           />
         ) : (
           <AiOutlinePauseCircle
             onClick={handlePlay}
-            className="invisible absolute right-1/5 top-3/5  z-10 h-1/5 w-1/5 text-red-500 sm:visible"
+            className="invisible absolute right-1/5 top-3/5 z-50 h-1/10 w-1/5 text-red-500 opacity-50 sm:visible"
           />
         )}
         <canvas
@@ -82,7 +90,7 @@ export default function Home({ schedule }) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-              <p className="basis-1/2 pb-10 text-vin1">
+              <p className="basis-1/2 rounded-md bg-white p-5  pb-10 text-vin1">
                 <span className="font-bold text-vin2">ENGKAU BAIK </span>
                 Sebuah persembahan Pujian baru dari Bekasi Hope Church & Jonah
                 Chen, tentang kebaikkan Tuhan, kiranya lagu ini dapat menjadi
@@ -111,7 +119,7 @@ export default function Home({ schedule }) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
-              <p className="basis-1/2 pb-10 text-vin1">
+              <p className="basis-1/2 rounded-md bg-white p-5 pb-10 text-vin1">
                 <span className="font-bold text-vin2">
                   TETAP PERCAYA by: Jonah Chen
                 </span>{" "}
@@ -129,7 +137,22 @@ export default function Home({ schedule }) {
         />
       </div>
       <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
-      <Content head={"About"} con={<p id="about">About us</p>} />
+      <Content
+        head={"About"}
+        con={
+          <p id="about" className=" rounded-md bg-white p-5">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </p>
+        }
+      />
       <Footer />
     </div>
   );
