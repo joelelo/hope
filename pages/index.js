@@ -81,7 +81,7 @@ export default function Home({ schedule }) {
           con={
             <>
               <iframe
-                className="mx-5 mb-10 aspect-video basis-1/2 drop-shadow-xl"
+                className="aspect-video basis-1/2 drop-shadow-xl sm:mx-5 sm:mb-10"
                 width=""
                 height=""
                 src="https://www.youtube.com/embed/0vZRFq09zeE"
@@ -110,7 +110,7 @@ export default function Home({ schedule }) {
           con={
             <>
               <iframe
-                className="mx-5 mb-10 aspect-video basis-1/2 drop-shadow-xl"
+                className="aspect-video basis-1/2 drop-shadow-xl sm:mx-5 sm:mb-10"
                 width=""
                 height=""
                 src="https://www.youtube.com/embed/-7zg8wusTe0"
@@ -132,6 +132,7 @@ export default function Home({ schedule }) {
                 saudara semua untuk tetap percaya kepada Tuhan yg kuasanya dan
                 janjiNya tidak berubah dulu sekarang dan selamanya.
               </p>
+              <div id="schedule"></div>
             </>
           }
         />
