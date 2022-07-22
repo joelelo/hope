@@ -1,5 +1,5 @@
 import connectDB from "../../lib/connectDB";
-import schedulemodel from "../../models/schedulemodel";
+import Schedulemodel from "../../models/Schedulemodel";
 connectDB();
 
 export default async function handler(req, res) {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const schedule = await schedulemodel.find({}).sort({ ind: 1 });
+        const schedule = await Schedulemodel.find({}).sort({ ind: 1 });
         res.status(200).json({ schedule: schedule });
       } catch (error) {
         res.status(500).json({ error: error });
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         req.body.map(async (line, i) => {
-          await schedulemodel.updateMany(
+          await Schedulemodel.updateMany(
             { ind: line[0].content },
             { ind: line[0].content, schedule: line },
             { upsert: true }

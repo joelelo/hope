@@ -9,6 +9,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      boxShadow: {
+        bot: "-2rem 2rem 30px white",
+      },
       aspectRatio: {
         img: "1920 / 850",
         img2: "3840 / 850",
@@ -35,7 +38,7 @@ module.exports = {
         "1/10": "10%",
         "2/5": "40%",
         "1/20": "5%",
-        "3/5": "72%",
+        "3/5": "65%",
         "2s": "200%",
         "3/10": "30%",
         "6/10": "60%",

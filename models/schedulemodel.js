@@ -11,6 +11,7 @@ const scheduleSchema = new mongoose.Schema({
     ],
     default: undefined,
   },
+  postDate: { type: Date, default: Date.now },
 });
 
 export default mongoose.models.Schedule ||

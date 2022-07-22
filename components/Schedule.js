@@ -15,6 +15,7 @@ const Schedule = ({ schedule }) => {
         return row.schedule.map((block) => {
           return (
             <div
+              key={block._id}
               className={
                 block.span === "1"
                   ? "col-span-1 break-words  bg-vin2 p-1 align-middle"

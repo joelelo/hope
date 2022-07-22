@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import { Wave } from "@foobar404/wave";
 import Schedule from "../components/Schedule";
 import Footer from "../components/Footer";
-export default function Home({ schedule }) {
+export default function Home({ schedule, contents }) {
   const audioRef = useRef();
   const canvasRef = useRef();
   const [playing, setPlaying] = useState(true);
@@ -46,7 +46,7 @@ export default function Home({ schedule }) {
       </div>
       <audio ref={audioRef} src="/audio/sample2.mp3" />
       <Navbar />
-      <div className="relative aspect-img w-2s overflow-hidden lg:w-full">
+      <div className="relative aspect-img w-2s overflow-hidden shadow-bot lg:w-full">
         <div className="absolute top-3/10 left-1/20 z-20 text-titm font-bold italic  text-vin2 lg:top-1/3 lg:text-tit">
           Hope Radio
         </div>
@@ -61,21 +61,49 @@ export default function Home({ schedule }) {
         {playing ? (
           <AiOutlinePlayCircle
             onClick={handlePlay}
-            className="invisible absolute right-1/5 top-3/5  z-50 h-1/10 w-1/5 text-red-500 sm:visible"
+            className="invisible absolute right-1/5 top-3/5 z-30 h-1/10 w-1/5 cursor-pointer text-red-500 sm:visible"
           />
         ) : (
           <AiOutlinePauseCircle
             onClick={handlePlay}
-            className="invisible absolute right-1/5 top-3/5 z-50 h-1/10 w-1/5 text-red-500 opacity-50 sm:visible"
+            className="invisible absolute right-1/5 top-3/5 z-30 h-1/10 w-1/5 cursor-pointer text-red-500 opacity-50 sm:visible"
           />
         )}
         <canvas
           ref={canvasRef}
           className="absolute right-1/5 top-3/5 z-20 h-1/10 w-1/5 "
         ></canvas>
-        <Image src={"/radio14.jpg"} layout="fill" priority="true" />
+        <Image src={"/radio15.jpg"} layout="fill" priority="true" />
       </div>
-      <div className="mx-10 flex flex-col sm:flex-row">
+      <div className="mx-56">
+        <div className="flex flex-col sm:flex-row">
+          {contents.map((content) => {
+            return (
+              <Content
+                key={content._id}
+                head={content.head}
+                con={
+                  <>
+                    <iframe
+                      className="aspect-video basis-1/2 drop-shadow-xl sm:mx-5 sm:mb-10"
+                      width=""
+                      height=""
+                      src={content.utubeUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                    <p className="basis-1/2 rounded-md bg-white p-5 font-serif text-vin1">
+                      {content.text}
+                    </p>
+                  </>
+                }
+              />
+            );
+          })}
+        </div>
+        {/* <div className="mx-10 flex flex-col sm:flex-row">
         <Content
           head={"Engkau Baik"}
           con={
@@ -136,24 +164,26 @@ export default function Home({ schedule }) {
             </>
           }
         />
+      </div> */}
+        <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
+        <Content
+          head={"About"}
+          con={
+            <p id="about" className=" rounded-md bg-white p-5">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+          }
+        />
       </div>
-      <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
-      <Content
-        head={"About"}
-        con={
-          <p id="about" className=" rounded-md bg-white p-5">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
-        }
-      />
       <Footer />
     </div>
   );
@@ -162,9 +192,10 @@ export default function Home({ schedule }) {
 export const getServerSideProps = async (ctx) => {
   const res = await fetch("http://localhost:3000/api/schedule");
   const { schedule } = await res.json();
-  console.log(schedule);
+  const res2 = await fetch("http://localhost:3000/api/content");
+  const { contents } = await res2.json();
   return {
-    props: { schedule },
+    props: { schedule, contents },
   };
 };
 //absolute top-0 right-0 h-auto w-1/2
