@@ -107,7 +107,7 @@ const EditSchedule = ({ schedule }) => {
       })
       .toString()
   );
-  const handleChange = (e, btn) => {
+  const handleChange = (e, fn, btn) => {
     e.preventDefault();
     const getNew = (e, st) => {
       const temp = st.split(",");
@@ -125,128 +125,136 @@ const EditSchedule = ({ schedule }) => {
       return false;
     };
     let out = false;
-    switch (btn) {
-      case 1:
-        out = getNew(e, sixs);
-        if (out) {
-          setSix(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 2:
-        out = getNew(e, svns);
-        if (out) {
-          setSvn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 3:
-        out = getNew(e, eits);
-        if (out) {
-          setEit(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 4:
-        out = getNew(e, nines);
-        if (out) {
-          setNine(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 5:
-        out = getNew(e, tens);
-        if (out) {
-          setTen(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 6:
-        out = getNew(e, eles);
-        if (out) {
-          setEle(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 7:
-        out = getNew(e, twes);
-        if (out) {
-          setTwe(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 8:
-        out = getNew(e, frts);
-        if (out) {
-          setFrt(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 9:
-        out = getNew(e, stns);
-        if (out) {
-          setStn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 10:
-        out = getNew(e, etns);
-        if (out) {
-          setEtn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 11:
-        out = getNew(e, tnts);
-        if (out) {
-          setTnt(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 12:
-        out = getNew(e, ttws);
-        if (out) {
-          setTtw(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 13:
-        out = getNew(e, tfrs);
-        if (out) {
-          setTfr(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
+    out = getNew(e, btn);
+    if (out) {
+      fn(out);
+      alert("success");
+    } else {
+      alert("error: Jumlahnya harus 8");
     }
+    // switch (btn) {
+    //   case 1:
+    //     out = getNew(e, sixs);
+    //     if (out) {
+    //       setSix(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 2:
+    //     out = getNew(e, svns);
+    //     if (out) {
+    //       setSvn(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 3:
+    //     out = getNew(e, eits);
+    //     if (out) {
+    //       setEit(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 4:
+    //     out = getNew(e, nines);
+    //     if (out) {
+    //       setNine(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 5:
+    //     out = getNew(e, tens);
+    //     if (out) {
+    //       setTen(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 6:
+    //     out = getNew(e, eles);
+    //     if (out) {
+    //       setEle(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 7:
+    //     out = getNew(e, twes);
+    //     if (out) {
+    //       setTwe(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 8:
+    //     out = getNew(e, frts);
+    //     if (out) {
+    //       setFrt(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 9:
+    //     out = getNew(e, stns);
+    //     if (out) {
+    //       setStn(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 10:
+    //     out = getNew(e, etns);
+    //     if (out) {
+    //       setEtn(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 11:
+    //     out = getNew(e, tnts);
+    //     if (out) {
+    //       setTnt(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 12:
+    //     out = getNew(e, ttws);
+    //     if (out) {
+    //       setTtw(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    //   case 13:
+    //     out = getNew(e, tfrs);
+    //     if (out) {
+    //       setTfr(out);
+    //       alert("success");
+    //     } else {
+    //       alert("error: Jumlahnya harus 8");
+    //     }
+    //     break;
+    // }
     // console.log(e.target[0]);
   };
-  const handleStructChange = (btn) => {
+  const handleStructChange = (fn, btn) => {
+    console.log(btn);
     const getNew = (st) => {
       const temp = st.split(",");
       if (temp.reduce((sum, a) => sum + parseInt(a), 0) === 8) {
@@ -258,124 +266,13 @@ const EditSchedule = ({ schedule }) => {
       return false;
     };
     let out = false;
-    switch (btn) {
-      case 1:
-        out = getNew(sixs);
-        if (out) {
-          setSix(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 2:
-        out = getNew(svns);
-        if (out) {
-          setSvn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 3:
-        out = getNew(eits);
-        if (out) {
-          setEit(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 4:
-        out = getNew(nines);
-        if (out) {
-          setNine(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 5:
-        out = getNew(tens);
-        if (out) {
-          setTen(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 6:
-        out = getNew(eles);
-        if (out) {
-          setEle(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 7:
-        out = getNew(twes);
-        if (out) {
-          setTwe(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 8:
-        out = getNew(frts);
-        if (out) {
-          setFrt(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 9:
-        out = getNew(stns);
-        if (out) {
-          setStn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 10:
-        out = getNew(etns);
-        if (out) {
-          setEtn(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 11:
-        out = getNew(tnts);
-        if (out) {
-          setTnt(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 12:
-        out = getNew(ttws);
-        if (out) {
-          setTtw(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
-      case 13:
-        out = getNew(tfrs);
-        if (out) {
-          setTfr(out);
-          alert("success");
-        } else {
-          alert("error: Jumlahnya harus 8");
-        }
-        break;
+    out = getNew(btn);
+    console.log(btn);
+    if (out) {
+      fn(out);
+      alert("success");
+    } else {
+      alert("error: Jumlahnya harus 8");
     }
   };
   const handleSave = async () => {
@@ -423,7 +320,7 @@ const EditSchedule = ({ schedule }) => {
       <div></div>
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 1)}
+        onSubmit={(e) => handleChange(e, setSix, sixs)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {six.map((block, i) => {
@@ -451,8 +348,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -467,11 +364,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(1)}
+        onClick={() => handleStructChange(setSix, sixs)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 2)}
+        onSubmit={(e) => handleChange(e, setSvn, svns)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {svn.map((block, i) => {
@@ -499,8 +396,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -514,11 +411,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(2)}
+        onClick={() => handleStructChange(setSvn, svns)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 3)}
+        onSubmit={(e) => handleChange(e, setEit, eits)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {eit.map((block, i) => {
@@ -546,8 +443,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -561,11 +458,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(3)}
+        onClick={() => handleStructChange(setEit, eits)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 4)}
+        onSubmit={(e) => handleChange(e, setNine, nines)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {nine.map((block, i) => {
@@ -593,8 +490,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -608,11 +505,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(4)}
+        onClick={() => handleStructChange(setNine, nines)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 5)}
+        onSubmit={(e) => handleChange(e, setTen, tens)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ten.map((block, i) => {
@@ -640,8 +537,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -655,11 +552,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(5)}
+        onClick={() => handleStructChange(setTen, tens)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 6)}
+        onSubmit={(e) => handleChange(e, setEle, eles)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ele.map((block, i) => {
@@ -687,8 +584,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -702,11 +599,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(6)}
+        onClick={() => handleStructChange(setEle, eles)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 7)}
+        onSubmit={(e) => handleChange(e, setTwe, twes)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {twe.map((block, i) => {
@@ -734,8 +631,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -749,11 +646,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(7)}
+        onClick={() => handleStructChange(setTwe, twes)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 8)}
+        onSubmit={(e) => handleChange(e, setFrt, frts)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {frt.map((block, i) => {
@@ -781,8 +678,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -796,11 +693,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(8)}
+        onClick={() => handleStructChange(setFrt, frts)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 9)}
+        onSubmit={(e) => handleChange(e, setStn, stns)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {stn.map((block, i) => {
@@ -828,8 +725,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -843,11 +740,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(9)}
+        onClick={() => handleStructChange(setStn, stns)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 10)}
+        onSubmit={(e) => handleChange(e, setEtn, etns)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {etn.map((block, i) => {
@@ -875,8 +772,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -890,11 +787,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(10)}
+        onClick={() => handleStructChange(setEtn, etns)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 11)}
+        onSubmit={(e) => handleChange(e, setTnt, tnts)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {tnt.map((block, i) => {
@@ -922,8 +819,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -937,11 +834,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(11)}
+        onClick={() => handleStructChange(setTnt, tnts)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 12)}
+        onSubmit={(e) => handleChange(e, setTtw, ttws)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {ttw.map((block, i) => {
@@ -969,8 +866,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -984,11 +881,11 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(12)}
+        onClick={() => handleStructChange(setTtw, ttws)}
       />
       <form
         method="post"
-        onSubmit={(e) => handleChange(e, 13)}
+        onSubmit={(e) => handleChange(e, setTfr, tfrs)}
         className="col-span-8 grid grid-cols-9 grid-rows-1"
       >
         {tfr.map((block, i) => {
@@ -1016,8 +913,8 @@ const EditSchedule = ({ schedule }) => {
         })}
         <input
           type="submit"
-          value="Change"
-          className="bg-yellow-200 text-vin2"
+          value="Save Line"
+          className="bg-green-300 text-vin2"
         />
       </form>
       <input
@@ -1031,7 +928,7 @@ const EditSchedule = ({ schedule }) => {
         type="button"
         value="Reset"
         className="bg-yellow-200 text-vin2"
-        onClick={() => handleStructChange(13)}
+        onClick={() => handleStructChange(setTfr, tfrs)}
       />
       <div></div>
       <div></div>
