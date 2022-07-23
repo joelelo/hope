@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ContentTable from "../components/ContentTable";
 import { useRouter } from "next/router";
 import EditSchedule from "../components/EditSchedule";
+import { signOut } from "next-auth/react";
 
 const admin = ({ contents, schedule }) => {
   const router = useRouter();
@@ -73,6 +74,12 @@ const admin = ({ contents, schedule }) => {
   }, [data]);
   return (
     <div className="px-40">
+      <button
+        className="absolute right-10 top-10 rounded-md bg-red-500 p-3 text-white"
+        onClick={() => signOut({ callbackUrl: "http://localhost/" })}
+      >
+        Logout
+      </button>
       <h1 className="text-center text-tit">Admin Panel</h1>
       <ContentTable columns={columns} data={data} updateMyData={updateMyData} />
       <button
