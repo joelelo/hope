@@ -76,7 +76,7 @@ export default function Home({ schedule, contents }) {
         <Image src={"/radio15.jpg"} layout="fill" priority="true" />
       </div>
       <div className="mx-56">
-        <div className="flex flex-col sm:flex-row">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
           {contents.map((content) => {
             return (
               <Content

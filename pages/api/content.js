@@ -14,8 +14,19 @@ export default async function (req, res) {
       break;
     case "POST":
       try {
-        req.body.map(async (cont) => {
-          await Contentmodel.updateMany({ index: cont.i }, cont, {
+        const deleteIfMore = async (len) => {
+          const count = await Contentmodel.count({});
+          console.log(count, len);
+          if (count > len) {
+            await Contentmodel.findOneAndRemove({ index: count - 1 });
+          }
+          if (count - len > 1) {
+            deleteIfMore(len);
+          }
+        };
+        deleteIfMore(req.body.length);
+        req.body.map(async (cont, i) => {
+          await Contentmodel.updateMany({ index: i }, cont, {
             upsert: true,
           });
         });
