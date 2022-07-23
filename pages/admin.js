@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import EditSchedule from "../components/EditSchedule";
 import { signOut } from "next-auth/react";
 
-const admin = ({ contents, schedule }) => {
+const Admin = ({ contents, schedule }) => {
   const router = useRouter();
   const [num, setNum] = useState(contents.length);
   const [data, setData] = useState(
@@ -56,7 +56,6 @@ const admin = ({ contents, schedule }) => {
     setNum(newd.length);
   };
   const handleSave = async () => {
-    console.log(data);
     try {
       await fetch("/api/content", {
         method: "POST",
@@ -69,9 +68,6 @@ const admin = ({ contents, schedule }) => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <div className="px-40">
       <button
@@ -112,4 +108,4 @@ export const getServerSideProps = async (ctx) => {
     props: { contents, schedule },
   };
 };
-export default admin;
+export default Admin;

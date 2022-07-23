@@ -17,24 +17,33 @@ const ContentTable = ({ columns, data, updateMyData }) => {
     <>
       <table className="w-full border-2 " {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th className="border-2" {...column.getHeaderProps()}>
-                  {column.render("Header")}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row);
+          {headerGroups.map((headerGroup) => {
+            const { key, ...restHeaderGroupProps } =
+              headerGroup.getHeaderGroupProps();
             return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
+              <tr key={key} {...restHeaderGroupProps}>
+                {headerGroup.headers.map((column) => {
+                  const { key, ...restColumn } = column.getHeaderProps();
                   return (
-                    <td className="border-2" {...cell.getCellProps()}>
+                    <th className="border-2" key={key} {...restColumn}>
+                      {column.render("Header")}
+                    </th>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </thead>
+        <tbody {...getTableBodyProps}>
+          {rows.map((row) => {
+            prepareRow(row);
+            const { key, ...restRowProps } = row.getRowProps();
+            return (
+              <tr key={key} {...restRowProps}>
+                {row.cells.map((cell) => {
+                  const { key, ...restCellProps } = cell.getCellProps();
+                  return (
+                    <td className="border-2" key={key} {...restCellProps}>
                       {cell.render("Cell")}
                     </td>
                   );

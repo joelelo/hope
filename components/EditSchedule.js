@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const EditSchedule = ({ schedule }) => {
-  console.log(schedule);
   const [six, setSix] = useState(schedule[0].schedule);
   const [svn, setSvn] = useState(schedule[1].schedule);
   const [eit, setEit] = useState(schedule[2].schedule);
@@ -132,129 +131,8 @@ const EditSchedule = ({ schedule }) => {
     } else {
       alert("error: Jumlahnya harus 8");
     }
-    // switch (btn) {
-    //   case 1:
-    //     out = getNew(e, sixs);
-    //     if (out) {
-    //       setSix(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 2:
-    //     out = getNew(e, svns);
-    //     if (out) {
-    //       setSvn(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 3:
-    //     out = getNew(e, eits);
-    //     if (out) {
-    //       setEit(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 4:
-    //     out = getNew(e, nines);
-    //     if (out) {
-    //       setNine(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 5:
-    //     out = getNew(e, tens);
-    //     if (out) {
-    //       setTen(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 6:
-    //     out = getNew(e, eles);
-    //     if (out) {
-    //       setEle(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 7:
-    //     out = getNew(e, twes);
-    //     if (out) {
-    //       setTwe(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 8:
-    //     out = getNew(e, frts);
-    //     if (out) {
-    //       setFrt(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 9:
-    //     out = getNew(e, stns);
-    //     if (out) {
-    //       setStn(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 10:
-    //     out = getNew(e, etns);
-    //     if (out) {
-    //       setEtn(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 11:
-    //     out = getNew(e, tnts);
-    //     if (out) {
-    //       setTnt(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 12:
-    //     out = getNew(e, ttws);
-    //     if (out) {
-    //       setTtw(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    //   case 13:
-    //     out = getNew(e, tfrs);
-    //     if (out) {
-    //       setTfr(out);
-    //       alert("success");
-    //     } else {
-    //       alert("error: Jumlahnya harus 8");
-    //     }
-    //     break;
-    // }
-    // console.log(e.target[0]);
   };
   const handleStructChange = (fn, btn) => {
-    console.log(btn);
     const getNew = (st) => {
       const temp = st.split(",");
       if (temp.reduce((sum, a) => sum + parseInt(a), 0) === 8) {
@@ -267,7 +145,6 @@ const EditSchedule = ({ schedule }) => {
     };
     let out = false;
     out = getNew(btn);
-    console.log(btn);
     if (out) {
       fn(out);
       alert("success");
@@ -299,22 +176,19 @@ const EditSchedule = ({ schedule }) => {
       body: JSON.stringify(out),
     });
   };
-  useEffect(() => {
-    console.log(six);
-  }, [, six]);
   return (
     <div
       id="schedule"
-      className="grid w-full grid-cols-11 gap-y-2 pb-20 text-center text-vin4"
+      className="grid w-full grid-cols-11 gap-y-2 pb-20 text-center text-white"
     >
-      <div className="bg-vin2 text-vin4">Week</div>
-      <div className="bg-vin2 text-vin4">Mon</div>
-      <div className="bg-vin2 text-vin4">Tue</div>
-      <div className="bg-vin2 text-vin4">Wed</div>
-      <div className="bg-vin2 text-vin4">Thu</div>
-      <div className="bg-vin2 text-vin4">Fri</div>
-      <div className="bg-vin2 text-vin4">Sat</div>
-      <div className="bg-vin2 text-vin4">Sun</div>
+      <div className="bg-vin2">Week</div>
+      <div className="bg-vin2">Mon</div>
+      <div className="bg-vin2">Tue</div>
+      <div className="bg-vin2">Wed</div>
+      <div className="bg-vin2">Thu</div>
+      <div className="bg-vin2">Fri</div>
+      <div className="bg-vin2">Sat</div>
+      <div className="bg-vin2">Sun</div>
       <div></div>
       <div></div>
       <div></div>
@@ -326,6 +200,7 @@ const EditSchedule = ({ schedule }) => {
         {six.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -353,11 +228,11 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={sixs}
         onChange={(e) => {
           setSixs(e.target.value);
-          console.log(typeof sixs);
         }}
       />
       <input
@@ -374,6 +249,7 @@ const EditSchedule = ({ schedule }) => {
         {svn.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -401,6 +277,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={svns}
         onChange={(e) => {
@@ -421,6 +298,7 @@ const EditSchedule = ({ schedule }) => {
         {eit.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -448,6 +326,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={eits}
         onChange={(e) => {
@@ -468,6 +347,7 @@ const EditSchedule = ({ schedule }) => {
         {nine.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -495,6 +375,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={nines}
         onChange={(e) => {
@@ -515,6 +396,7 @@ const EditSchedule = ({ schedule }) => {
         {ten.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -542,6 +424,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={tens}
         onChange={(e) => {
@@ -562,6 +445,7 @@ const EditSchedule = ({ schedule }) => {
         {ele.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -589,6 +473,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={eles}
         onChange={(e) => {
@@ -609,6 +494,7 @@ const EditSchedule = ({ schedule }) => {
         {twe.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -636,6 +522,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={twes}
         onChange={(e) => {
@@ -656,6 +543,7 @@ const EditSchedule = ({ schedule }) => {
         {frt.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -683,6 +571,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={frts}
         onChange={(e) => {
@@ -703,6 +592,7 @@ const EditSchedule = ({ schedule }) => {
         {stn.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -730,6 +620,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={stns}
         onChange={(e) => {
@@ -750,6 +641,7 @@ const EditSchedule = ({ schedule }) => {
         {etn.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -777,6 +669,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={etns}
         onChange={(e) => {
@@ -797,6 +690,7 @@ const EditSchedule = ({ schedule }) => {
         {tnt.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -824,6 +718,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={tnts}
         onChange={(e) => {
@@ -844,6 +739,7 @@ const EditSchedule = ({ schedule }) => {
         {ttw.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -871,6 +767,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={ttws}
         onChange={(e) => {
@@ -891,6 +788,7 @@ const EditSchedule = ({ schedule }) => {
         {tfr.map((block, i) => {
           return (
             <input
+              key={i}
               type="text"
               className={
                 block.span === "1"
@@ -918,6 +816,7 @@ const EditSchedule = ({ schedule }) => {
         />
       </form>
       <input
+        className="text-vin2"
         type="text"
         value={tfrs}
         onChange={(e) => {

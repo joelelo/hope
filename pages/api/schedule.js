@@ -6,7 +6,6 @@ connectDB();
 
 export default async function handler(req, res) {
   const { method } = req;
-  console.log(method);
   switch (method) {
     case "GET":
       try {
@@ -19,7 +18,6 @@ export default async function handler(req, res) {
       break;
     case "POST":
       const session = await unstable_getServerSession(req, res, authOptions);
-      console.log(session);
       if (session) {
         try {
           req.body.map(async (line, i) => {
