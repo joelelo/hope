@@ -27,19 +27,18 @@ const Navbar = () => {
         </a>
       </Link>
       <Link href="#schedule">
-        <a
-          className="h-full w-fit p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl"
-          href="#schedule"
-        >
+        <a className="h-full w-fit p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl">
           Schedule
         </a>
       </Link>
       <Link href="#about">
-        <a
-          className="h-full w-fit p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl"
-          href="#about"
-        >
+        <a className="h-full w-fit p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl">
           About us
+        </a>
+      </Link>
+      <Link href="/admin">
+        <a className="h-full w-fit justify-end p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl ">
+          Admin
         </a>
       </Link>
     </div>
