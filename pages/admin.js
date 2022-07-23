@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ContentTable from "../components/ContentTable";
 import { useRouter } from "next/router";
+import EditSchedule from "../components/EditSchedule";
 
-const admin = ({ contents }) => {
+const admin = ({ contents, schedule }) => {
   const router = useRouter();
   const [num, setNum] = useState(contents.length);
   const [data, setData] = useState(
@@ -86,10 +87,11 @@ const admin = ({ contents }) => {
       <p>num: {num}</p>
       <button
         onClick={handleSave}
-        className="rounded-xl bg-green-500 py-2 px-5 text-white"
+        className="mb-20 rounded-xl bg-green-500 py-2 px-5 text-white"
       >
         Save
       </button>
+      <EditSchedule schedule={schedule} />
     </div>
   );
 };
@@ -97,8 +99,10 @@ const admin = ({ contents }) => {
 export const getServerSideProps = async (ctx) => {
   const res = await fetch("http://localhost:3000/api/content");
   const { contents } = await res.json();
+  const res2 = await fetch("http://localhost:3000/api/schedule");
+  const { schedule } = await res2.json();
   return {
-    props: { contents },
+    props: { contents, schedule },
   };
 };
 export default admin;
