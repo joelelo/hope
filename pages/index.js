@@ -81,33 +81,36 @@ export default function Home({ schedule, contents }) {
           priority="true"
         />
       </div>
-      <div className="sm:mx-1/10 lg:mx-56">
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          {contents.map((content) => {
-            return (
-              <Content
-                key={content._id}
-                head={content.head}
-                con={
-                  <>
-                    <iframe
-                      className="aspect-video basis-1/2 drop-shadow-xl sm:mx-5 sm:mb-10"
-                      width=""
-                      height=""
-                      src={content.utubeUrl}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                    <p className="basis-1/2 rounded-md bg-white p-5 font-serif text-vin1">
-                      {content.text}
-                    </p>
-                  </>
-                }
-              />
-            );
-          })}
+      <div className="sm:mx-auto">
+        <div className="mx-auto w-full max-w-5xl">
+          {/* TODO: > 850 single cols */}
+          <div className="grid grid-cols-1 sm:grid-cols-2">
+            {contents.map((content) => {
+              return (
+                <Content
+                  key={content._id}
+                  head={content.head}
+                  con={
+                    <>
+                      <iframe
+                        className="aspect-video basis-1/2 drop-shadow-xl sm:mx-5 sm:mb-10"
+                        width=""
+                        height=""
+                        src={content.utubeUrl}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                      <p className="basis-1/2 rounded-md bg-white p-5 font-serif text-vin1">
+                        {content.text}
+                      </p>
+                    </>
+                  }
+                />
+              );
+            })}
+          </div>
         </div>
         <Content head={"Schedule"} con={<Schedule schedule={schedule} />} />
         <Content
