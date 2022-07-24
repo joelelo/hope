@@ -18,7 +18,7 @@ const Navbar = () => {
       className={
         scroll > 10
           ? "sm:p-auto fixed z-50 flex h-fit w-screen justify-start space-x-4 bg-vin1 pt-1 pb-2 text-white lg:pl-20"
-          : "sm:p-auto fixed z-50 flex h-fit w-screen justify-start space-x-4 bg-vin1 pt-1 pb-2 text-white sm:text-vin2 lg:bg-transparent lg:pl-20"
+          : "sm:p-auto fixed z-50 flex h-fit w-screen justify-start space-x-4 bg-vin1 pt-1 pb-2 text-white lg:bg-transparent lg:pl-20 lg:text-vin2"
       }
     >
       <Link href="#">
