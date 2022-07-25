@@ -9,6 +9,10 @@ module.exports = {
       center: true,
     },
     extend: {
+      screens: {
+        bd: "825px",
+        // => @media (min-height: 800px) { ... }
+      },
       boxShadow: {
         bot: "-2rem 2rem 30px white",
       },

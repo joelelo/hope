@@ -46,16 +46,18 @@ export default function Home({ schedule, contents }) {
       <audio ref={audioRef} src="/audio/sample2.mp3" />
       <Navbar />
       <div className="relative aspect-img w-2s overflow-hidden shadow-bot lg:w-full">
-        <div className="absolute top-3/10 left-1/20 z-20 text-titm font-bold italic  text-vin2 lg:top-1/3 lg:text-tit">
-          Hope Radio
-        </div>
-        <div className="absolute top-2/5 left-1/10 z-20 font-cursive text-titm text-red-500 lg:top-2/5 lg:text-tit">
-          Atmosfir
-        </div>
-        <div className="absolute bottom-1/5 left-1/20 z-20 font-serif text-herom text-vin2 lg:top-6/10 lg:text-hero">
-          Hope Atmosfir Radio radio Bekasi Hope Church <br /> Dengarkan
-          sekarang!! <br />
-          Klik tombol play untuk mendengarkan radio
+        <div className="absolute top-3/10 left-1/20 z-20">
+          <div className="line text-titm  font-bold  italic leading-tight text-vin2 lg:text-tit">
+            Hope Radio
+          </div>
+          <div className="-mt-7 font-cursive text-titm leading-tight text-red-500 lg:text-tit">
+            Atmosfir
+          </div>
+          <div className="font-serif text-herom leading-tight text-vin2 lg:text-hero">
+            Hope Atmosfir Radio radio Bekasi Hope Church <br /> Dengarkan
+            sekarang!! <br />
+            Klik tombol play untuk mendengarkan radio
+          </div>
         </div>
         {playing ? (
           <AiOutlinePlayCircle
@@ -82,9 +84,9 @@ export default function Home({ schedule, contents }) {
         />
       </div>
       <div className="sm:mx-auto">
-        <div className="mx-auto w-full max-w-5xl">
+        <div className="mx-auto w-full max-w-7xl">
           {/* TODO: > 850 single cols */}
-          <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="grid grid-cols-1 bd:grid-cols-2">
             {contents.map((content) => {
               return (
                 <Content
