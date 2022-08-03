@@ -36,11 +36,6 @@ const Navbar = () => {
           About us
         </a>
       </Link>
-      <Link href="/admin">
-        <a className="h-full w-fit justify-end p-2 text-2xl font-extralight hover:bg-vin2 hover:text-white sm:text-2xl lg:text-4xl ">
-          Admin
-        </a>
-      </Link>
     </div>
   );
 };
